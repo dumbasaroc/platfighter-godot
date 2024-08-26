@@ -1,0 +1,31 @@
+[gd_scene load_steps=3 format=3 uid="uid://bwo420o8q3uar"]
+
+[ext_resource type="Script" path="res://Scripts/BaseCharacter.gd" id="1_owpsl"]
+[ext_resource type="ArrayMesh" uid="uid://cc6c2g06u3cgo" path="res://testcharacter.obj" id="2_p2g53"]
+
+[node name="Node3D" type="Node3D"]
+
+[node name="Stage" type="Node3D" parent="."]
+transform = Transform3D(0.999999, 0, 0, 0, 0.999999, 0, 0, 0, 1, 0, 0, 0)
+
+[node name="CSGBox3D" type="CSGBox3D" parent="Stage"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -2.5, 0)
+use_collision = true
+size = Vector3(40, 5, 2)
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
+
+[node name="TestCharacter" type="Node3D" parent="."]
+script = ExtResource("1_owpsl")
+ecb_top_point = 5.8
+ecb_front_point = 0.8
+ecb_back_point = -0.8
+run_speed = 7.0
+fall_speed = 3.0
+jump_velocity = 0.8
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="TestCharacter"]
+mesh = ExtResource("2_p2g53")
+
+[node name="Camera3D" type="Camera3D" parent="TestCharacter"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 3.37305, 28.1536)

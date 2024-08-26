@@ -1,0 +1,21 @@
+[gd_scene load_steps=3 format=3 uid="uid://ujhkn0ebuwn1"]
+
+[ext_resource type="Script" path="res://Scripts/BaseCharacter.gd" id="1_7myj5"]
+[ext_resource type="Script" path="res://Scripts/env_collision_box.gd" id="2_ghv4v"]
+
+[node name="TestCharacter" type="Node3D" node_paths=PackedStringArray("ECB")]
+script = ExtResource("1_7myj5")
+ECB = NodePath("EnvironmentalCollisionBox")
+run_speed = 5.0
+gravity = 0.144
+jump_velocity = 0.1
+
+[node name="EnvironmentalCollisionBox" type="Node3D" parent="."]
+script = ExtResource("2_ghv4v")
+_top_point = 2.0
+_bottom_point = 0.0
+_forward_point = 0.5
+_behind_point = -0.5
+
+[node name="Camera3D" type="Camera3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.55698, 13.9258)
